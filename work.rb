@@ -20,3 +20,13 @@ def change(age)
 end 
  
   (1..5).to
+  
+  
+  
+  def greeting(*names)
+    "#{names.join('と')}、こんにちは！"
+  end 
+  greeting('田中さん')
+  
+    
+  
