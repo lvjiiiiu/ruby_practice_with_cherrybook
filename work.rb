@@ -28,5 +28,6 @@ end
   end 
   greeting('田中さん')
   
-    
+  a = []
+  while a.size < 5 do a << 1 end
   
