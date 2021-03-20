@@ -30,4 +30,20 @@ end
   
   a = []
   while a.size < 5 do a << 1 end
+    
+  h = {us:"doller", india:"rupee"}
+  {japan:"yen", **h}
   
+text = "私の誕生日は1977年7月17日です。"
+if /(?<year>\d+)年(?<month>\d+)月(?<day>\d+)日/=~text
+  puts "#{year}#{month}#{day}"
+end 
+m[1]
+m[2]
+m[3]
+
+"123 456 789".scan(/\d+/)
+"1977年7月17日 2016年12月31日".scan(/(?:\d+)年(?:\d+)月(?:\d+)日/)
+
+text = "誕生日は1977年7月17日です"
+text.gsub(/(\d+)年(\d+)月(\d+)日/,"\1-\2-\3")
