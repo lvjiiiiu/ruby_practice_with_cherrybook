@@ -47,3 +47,29 @@ m[3]
 
 text = "誕生日は1977年7月17日です"
 text.gsub(/(\d+)年(\d+)月(\d+)日/,"\1-\2-\3")
+
+
+class User
+  attr_ :name
+
+  def initialize(name)
+  @name = name
+  end
+end
+
+
+user = User.new("Alice")
+user.name
+user.name = "Bob"
+
+class Product
+  DEFAULT_PRICE = 0
+  attr_reader :name, :price
+  def initialize(name, price = DEFAULT_PRICE)
+    @name = name
+    @price = price
+  end 
+end 
+
+product = Product.new("A free movie")
+product.price 
