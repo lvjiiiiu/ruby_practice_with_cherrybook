@@ -39,3 +39,27 @@ class GateTest < Minitest::Test
   end 
   
 end
+
+
+class User
+  
+  def initialize(name)
+    @name = name
+  end
+  
+  def hello
+    "Hello, #{@name}!"
+  end 
+end
+
+
+user = User.new("Alice")
+user.hello
+
+class User
+  def hello
+    "#{@name}さん、こんにちは"
+  end
+end 
+
+user.hello
