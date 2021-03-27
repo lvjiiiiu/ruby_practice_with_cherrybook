@@ -89,3 +89,21 @@ class User
     end 
   end 
 end 
+
+class User
+  def name 
+    "Alice"
+  end 
+end 
+
+class Product
+  def name 
+    "A great movie"
+  end 
+end 
+
+user = User.new
+display_name(user)
+product = Product.new
+disyplay_name(product)
+
