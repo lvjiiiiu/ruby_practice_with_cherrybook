@@ -63,3 +63,29 @@ class User
 end 
 
 user.hello
+
+
+class User
+  def self.hello
+    "Hello"
+  end 
+  
+  class << self
+    def hi
+      "Hi."
+    end
+  end
+
+
+  alice ="I am alice"
+  
+  def alice.hello
+    "Hello."
+  end 
+  
+  class << alice
+    def hi
+     "Hi."
+    end 
+  end 
+end 
