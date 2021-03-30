@@ -134,3 +134,4 @@ product.display_text
 
 dvd = DVD.new("An awsome film", 3000)
 dvd.display_text
+
