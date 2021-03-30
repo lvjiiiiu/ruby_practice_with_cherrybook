@@ -95,3 +95,16 @@ class Tempo
     "#{bpm}bpm"
   end 
 end 
+
+module Loggable 
+	def log(text)
+		puts "[LOG]#{text}"
+	end
+end
+
+s = "abc"
+
+# 文字列は通常logメソッドを持たない。
+s.log("Hello.") #=>エラー
+s.extend(Loggable) #=>文字列sにLoggableモジュールのメソッドを特異メソッドとしてミックスインする。
+s.log("Hello.") #=>[LOG]Hello.
