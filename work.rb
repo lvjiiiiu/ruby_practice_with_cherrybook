@@ -127,3 +127,35 @@ module Clock
 		end
 	end
 end
+
+
+
+module StringShuffle
+
+	refine String do
+		def shuffle
+			chars.shuffle.join
+		end
+	end
+end
+
+"Alice".shuffle
+#=> エラー
+
+class User
+# refinementsを有効化する。
+	useing StringShuffle
+
+	def initialize(name)
+		@name = name
+	end
+	
+	def shuffled_name
+		@name.shuffle
+	end
+end
+
+user = User.new("Alice")
+user.shuffled_name
+#=> "cliAe"
+
