@@ -67,20 +67,41 @@
 #  currency_of(:japan)
 #  currency_of(:italy)
  
-require "date"
-def convert_heisei_to_date(heisei_text)
+# require "date"
+# def convert_heisei_to_date(heisei_text)
 
-	m = heisei_text.match(/平成(?<jp_year>\d+)年(?<month>\d+)月(?<day>\d+)日/)
-	year = m[:jp_year].to_i + 1988
-	month = m[:month].to_i
-	day = m[:day].to_i
+# 	m = heisei_text.match(/平成(?<jp_year>\d+)年(?<month>\d+)月(?<day>\d+)日/)
+# 	year = m[:jp_year].to_i + 1988
+# 	month = m[:month].to_i
+# 	day = m[:day].to_i
 
-	begin
-		Date.new(year, month, day)
-	rescue ArgumentoError
-	# 例外が起きたらnilを返したい
-		nil
-	end
+# 	begin
+# 		Date.new(year, month, day)
+# 	rescue ArgumentoError
+# 	# 例外が起きたらnilを返したい
+# 		nil
+# 	end
+# end
+
+# puts convert_heisei_to_date("平成5年9月15日")
+
+
+class NoCountryError < StandardError
+# 独自のクラス名を与えるのが目的なので、実装コードは特に書かない。
+# (継承だけで済ませる。)
 end
 
-puts convert_heisei_to_date("平成5年9月15日")
+def currency_of(country)
+ case country
+ when :japan
+  puts "yen"
+ when :us
+  puts "doller"
+ when :india
+  puts "rupee"
+ else
+  raise NoCountryError, "無効な国名です。 #{country}"
+ end 
+end 
+ 
+ currency_of(:italy) #=> NoCountryError: 無名な国名です。italy
