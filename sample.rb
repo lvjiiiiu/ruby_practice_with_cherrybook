@@ -152,7 +152,30 @@
 # end 
 
  
-add_proc = Proc.new {|a = 0, b = 0| a + b }
-p add_proc.call
-p add_proc.call(10)
-puts add_proc.call(10, 20)
+# add_proc = Proc.new {|a = 0, b = 0| a + b }
+# p add_proc.call
+# p add_proc.call(10)
+# puts add_proc.call(10, 20)
+
+
+# def greeting(arrange_proc)
+#   puts "おはよう"
+#   text = arrange_proc.call("こんにちは")
+#   puts text 
+#   puts "こんばんは"
+# end 
+
+# repeat_proc = Proc.new{|text| text * 2}
+# greeting(repeat_proc)
+
+
+def greeting(proc_1, proc_2, proc_3)
+  puts proc_1.call("おはよう")
+  puts proc_2.call("こんにちは")
+  puts proc_3.call("こんばんは")
+end 
+
+shuffle_proc = Proc.new {|text|text.chars.shuffle.join}
+repeat_proc = Proc.new {|text|text * 2}
+question_proc = Proc.new {|text| "#{text}?"}
+greeting(shuffle_proc, repeat_proc, question_proc)
