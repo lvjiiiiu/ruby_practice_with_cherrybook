@@ -86,22 +86,47 @@
 # puts convert_heisei_to_date("平成5年9月15日")
 
 
-class NoCountryError < StandardError
-# 独自のクラス名を与えるのが目的なので、実装コードは特に書かない。
-# (継承だけで済ませる。)
-end
+# class NoCountryError < StandardError
+# # 独自のクラス名を与えるのが目的なので、実装コードは特に書かない。
+# # (継承だけで済ませる。)
+# end
 
-def currency_of(country)
- case country
- when :japan
-  puts "yen"
- when :us
-  puts "doller"
- when :india
-  puts "rupee"
- else
-  raise NoCountryError, "無効な国名です。 #{country}"
- end 
-end 
+# def currency_of(country)
+#  case country
+#  when :japan
+#   puts "yen"
+#  when :us
+#   puts "doller"
+#  when :india
+#   puts "rupee"
+#  else
+#   raise NoCountryError, "無効な国名です。 #{country}"
+#  end 
+# end 
  
- currency_of(:italy) #=> NoCountryError: 無名な国名です。italy
+#  currency_of(:italy) #=> NoCountryError: 無名な国名です。italy
+
+ def greeting_ja(&block)
+   texts = ["おはよう", "こんにちは", "こんばんは"]
+   greeting_common(texts, &block)
+ end
+ 
+ def greeting_en(&block)
+   texts = ["good morinig", "hello", "good evening"]
+   greeting_common(texts, &block)
+ end 
+ 
+ def greeting_common(texts, &block)
+   puts texts[0]
+   puts block.call(texts[1])
+   puts texts[2]
+ end
+ 
+ greeting_ja do |text|
+   text * 2
+ end 
+ 
+ greeting_en do |text|
+   text.upcase
+ end 
+ 
