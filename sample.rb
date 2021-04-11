@@ -180,17 +180,28 @@
 # question_proc = Proc.new {|text| "#{text}?"}
 # greeting(shuffle_proc, repeat_proc, question_proc)
 
-def proc_return
-  f = Proc.new {|n| return n * 10}
-  ret = [1, 2, 3].map(&f)
-  "ret: #{ret}"
-end 
+# def proc_return
+#   f = Proc.new {|n| return n * 10}
+#   ret = [1, 2, 3].map(&f)
+#   "ret: #{ret}"
+# end 
 
-def proc_break
-  f = ->(n) { return n * 10}
-  ret = [1, 2, 3].map(&f)
-  "ret: #{ret}"
-end 
+# def proc_break
+#   f = ->(n) { return n * 10}
+#   ret = [1, 2, 3].map(&f)
+#   "ret: #{ret}"
+# end 
 
-puts proc_return
-puts proc_break
+# puts proc_return
+# puts proc_break
+
+code = "[1, 2, 3].map {|n| n * 10}"
+
+p eval(code)
+
+puts `cat lib/fizz_buzz.rb`
+
+str="a, b, c"
+
+p str.send("upcase")
+p str.send("split", ",")
